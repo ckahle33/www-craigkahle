@@ -1,0 +1,122 @@
+---
+
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const data = [
+  {
+    company: "mesaworks.dev",
+    period: "May. 2025 – Present",
+    title: "Founder / CTO",
+    location: "Taos, NM",
+    description: "Founded software development company. Full-stack development with Node.js, and React.",
+    link: "#_",
+  },
+  {
+    company: "Meow Wolf",
+    period: "Mar. 2024 – Jun. 2025",
+    title: "Senior Software Engineer",
+    location: "Santa Fe, NM",
+    description: "Technical lead for messaging backend and CMS migration. Built CI/CD pipelines and TypeScript extensions.",
+    link: "#_",
+  },
+  {
+    company: "Google Cloud",
+    period: "Feb. 2020 – Mar. 2024",
+    title: "Customer Engineer",
+    location: "Austin, TX",
+    description: "Java microservices on Kubernetes. Network architecture and SQL dashboards for customer POCs.",
+    link: "#_",
+  },
+  {
+    company: "Google Cloud",
+    period: "Feb. 2020 – Mar. 2024",
+    title: "Technical Solutions Engineer",
+    location: "Austin, TX",
+    description: "S&P 500 customer support. Managed SQL queries and built internal tools.",
+    link: "#_",
+  },
+  {
+    company: "SXSW Conference and Festivals",
+    period: "June 2016 - Jan. 2020",
+    title: "Full-Stack Engineer",
+    location: "Austin, TX",
+    description: "Secure APIs for 200k+ mobile users. AWS infrastructure with Ansible.",
+    link: "#_",
+  },
+  {
+    company: "Crispy Interactive",
+    period: "June 2014 – Jan 2016",
+    title: "Full-Stack Developer",
+    location: "Austin, TX",
+    description: "Laravel PHP and AngularJS applications. Mobile app and e-commerce platform development.",
+    link: "#_",
+  },
+  {
+    company: "University of Texas at Austin",
+    period: "Sep. 2012 – May. 2014",
+    title: "Front End Developer",
+    location: "Austin, TX",
+    description: "PHP Joomla templates and JavaScript UI framework development.",
+    link: "#_",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard">
+    <div
+      class="grid grid-cols-1 gap-4 md:grid-cols-3 border-b py-8 border-base-200 dark:border-base-800"
+    >
+      <div class="lg:sticky lg:top-24 lg:z-40 self-start">
+        <Text tag="h2" variant="textSM" class="text-base-900 dark:text-white">
+          Work
+        </Text>
+      </div>
+      <div class="flex flex-col gap-12 lg:col-span-2">
+        {
+          data.map((work, index) => (
+            <article class="group relative grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-start ">
+              <div class="lg:col-span-2">
+                <Text
+                  tag="p"
+                  variant="textXS"
+                  class="relative z-10 font-medium text-base-800 dark:text-base-200"
+                >
+                  {work.company}
+                </Text>
+                <Text
+                  tag="h3"
+                  variant="textSM"
+                  class=" font-medium tracking-tight text-base-900 dark:text-white    "
+                >
+                  <div class="absolute -inset-x-1 -inset-y-4 z-0 scale-95 bg-base-50 dark:bg-base-800/20    opacity-0 transition group-hover:scale-100 group-hover:opacity-100 -inset-x-4 rounded-2xl duration-300" />
+                  <a href={work.link}>
+                    <>
+                      <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                      <span class="relative z-10"> {work.title}</span>
+                    </>
+                  </a>
+                </Text>
+                <Text
+                  tag="p"
+                  variant="textXS"
+                  class="relative z-10 mt-1 text-base-600 dark:text-base-600 dark:text-base-400      "
+                >
+                  {work.description}
+                </Text>
+              </div>
+              <Text
+                tag="p"
+                variant="textXS"
+                class="relative z-10   flex items-center text-sm text-base-600 dark:text-base-400  lg:ml-auto"
+              >
+                <time datetime={work.period}> {work.period}</time>
+              </Text>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>
