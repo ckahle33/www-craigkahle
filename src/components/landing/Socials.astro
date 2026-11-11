@@ -1,13 +1,8 @@
 ---
 // Fundations
-import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 const links = [
-  {
-    platform: "X",
-    url: "https://x.com/craigkahle",
-  },
   {
     platform: "GitHub",
     url: "https://github.com/ckahle33",
@@ -25,28 +20,18 @@ const links = [
 
 <section>
   <Wrapper variant="standard">
-    <div
-      class="grid grid-cols-1 gap-4 md:grid-cols-3 border-b py-8 border-base-200 dark:border-base-800"
-    >
-      <div class="lg:sticky lg:top-24 lg:z-40 self-start">
-        <Text tag="h2" variant="textSM" class="text-base-900 dark:text-white"
-          >Socials</Text
-        >
-      </div>
-      <div class="flex flex-col gap-2 lg:col-span-2">
-        {
-          links.map((social) => (
-            <Text
-              href={social.url}
-              tag="a"
-              variant="textXS"
-              class="text-base-600 dark:text-base-500 hover:text-base-900 dark:hover:text-white"
-            >
+    <div class="grid grid-cols-1 gap-6 border-b border-base-200 py-16 dark:border-base-800 md:grid-cols-[10rem_1fr]">
+      <h2 class="self-start text-sm font-medium tracking-tight text-base-500 md:sticky md:top-8 md:pt-3">Elsewhere</h2>
+      <ul class="flex flex-wrap gap-x-10 gap-y-3">
+        {links.map((social) => (
+          <li>
+            <a href={social.url} class="group inline-flex items-baseline gap-2 text-3xl font-medium tracking-tight text-base-950 transition-colors hover:text-bloom dark:text-white sm:text-4xl">
               {social.platform}
-            </Text>
-          ))
-        }
-      </div>
+              <span class="text-base text-base-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1 group-hover:text-bloom" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </Wrapper>
 </section>
